@@ -99,10 +99,10 @@ WSGI_APPLICATION = 'appAdoptarMasscotas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dcqlpsu11kgp2o',
-        'USER': 'wzzdhywcbnfbag',
-        'PASSWORD': '431b24ac3abf22f4dbe007608a9f8dd36eb37bb17bf79b94fd577b721aa12f85',
-        'HOST': 'ec2-34-193-101-0.compute-1.amazonaws.com',
+        'NAME': 'd289d8e6vpmpcu',
+        'USER': 'wzqifjjkzgdhil',
+        'PASSWORD': '35c05a62d281f786f040616ebaa05165428d6e8292fde9888298372f3a9a881a',
+        'HOST': 'ec2-44-199-26-122.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
