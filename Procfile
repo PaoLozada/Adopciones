@@ -1,0 +1,1 @@
+web:gunicorn appAdoptarMasscotas.wsgi

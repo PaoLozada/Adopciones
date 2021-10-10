@@ -1,0 +1,4 @@
+from .userSerializer import UserSerializer
+from .solicitudSerializer import SolicitudSerializer
+from .mascotaSerializer import MascotaSerializer
+from .candidatosSeerializer import CandidatosSerializer
