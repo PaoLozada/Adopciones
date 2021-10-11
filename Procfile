@@ -1,1 +1,1 @@
-web:gunicorn appAdoptarMasscotas.wsgi --log-file -
+web: gunicorn appAdoptarMasscotas.wsgi
