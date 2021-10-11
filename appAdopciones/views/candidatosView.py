@@ -19,6 +19,12 @@ class CandidatosView (views.APIView):
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
         return Response(status=status.HTTP_201_CREATED)
 
+    def delete_book(request, Id_Candidato):
+        Id_Candidato = int(Id_Candidato)
+        can_sel = Candidatos.objects.get(id = Id_Candidato)
+        can_sel.delete()
+        return Response(status=status.HTTP_201_CREATED)
+
     
 
     
