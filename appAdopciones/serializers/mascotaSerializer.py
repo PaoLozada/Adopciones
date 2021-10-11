@@ -10,8 +10,4 @@ class MascotaSerializer(serializers.ModelSerializer):
         mascota = Mascotas.objects.get(id=obj.id)
         
         
-        return{
-            'Nombre' : mascota.Nombre,
-            'Edad' : mascota.Edad,
-            'Disponibilidad' : mascota.Disponibilida
-        }
+       
