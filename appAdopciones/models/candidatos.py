@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Candidatos(models.Model):
-    Id_Candidato = models.AutoField(primary_key=True)
+    Id_Candidato = models.CharField(primary_key=True,max_length=20)
     Numero_Identificacion = models.CharField('Numero_Identificacion', max_length=20)
     Nombre_Completo = models.CharField('Nombre_Completo', max_length=50)
     Direccion = models.CharField('Direccion', max_length=30)
