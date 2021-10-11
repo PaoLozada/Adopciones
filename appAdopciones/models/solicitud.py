@@ -4,7 +4,7 @@ from .candidatos import Candidatos
 from .mascotas import Mascotas
 
 class Solicitud(models.Model):
-    id_Solicitud = models.AutoField(primary_key=True,default=0)
+    id_Solicitud = models.AutoField(primary_key=True)
     id_User = models.ForeignKey(User, related_name='solicitud', on_delete=models.CASCADE)
     id_Mascotas = models.ForeignKey(Mascotas, related_name='id_Mascotas', on_delete=models.CASCADE)
     id_Candidatos = models.ForeignKey(Candidatos, related_name='id_Candidatos', on_delete=models.CASCADE)
