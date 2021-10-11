@@ -23,7 +23,7 @@ class CandidatosView (views.APIView):
         
         if request.method == 'GET':
             candidato = Candidatos.objects.all()
-            serializer = CandidatosSerializer(Candidatos, many=True)
+            serializer = CandidatosSerializer(candidato, many=True)
             return Response(serializer.data)
 
         ''' elif request.method == 'POST':
