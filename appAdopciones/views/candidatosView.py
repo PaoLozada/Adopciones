@@ -3,6 +3,7 @@ from rest_framework import serializers
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from appAdopciones.models.candidatos import Candidatos
 from appAdopciones.serializers.candidatosSeerializer import CandidatosSerializer
 
 class CandidatosView (views.APIView):
@@ -17,3 +18,7 @@ class CandidatosView (views.APIView):
 
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
         return Response(status=status.HTTP_201_CREATED)
+
+    def get(self, request, *args, **kwargs):
+        
+        return Candidatos().get(request, *args, **kwargs)
