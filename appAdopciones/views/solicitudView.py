@@ -11,8 +11,9 @@ class SolicitudView (views.APIView):
         serializer.is_valid(raise_exception= True)
         serializer.save()
 
-        tokenData = {"username": request.data["userData"], "pasword": request.data["pasword"]}
+        '''tokenData = {"username": request.data["userData"], "pasword": request.data["pasword"]}
         tokenSerializer = TokenObtainPairSerializer(data = tokenData)
         tokenSerializer.is_valid(raise_exception=True)
 
-        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)
+        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
+        return Response(status=status.HTTP_201_CREATED)
