@@ -7,18 +7,6 @@ from appAdopciones.models.candidatos import Candidatos
 from appAdopciones.serializers.candidatosSeerializer import CandidatosSerializer
 
 class CandidatosView (views.APIView):
-    def post (self, request, *args, **kwargs):
-        serializer = CandidatosSerializer (data = request.data)
-        serializer.is_valid(raise_exception= True)
-        serializer.save()
-
-        '''tokenData = {"username": request.data["userData"], "pasword": request.data["pasword"]}
-        tokenSerializer = TokenObtainPairSerializer(data = tokenData)
-        tokenSerializer.is_valid(raise_exception=True)
-
-        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
-        return Response(status=status.HTTP_201_CREATED)
-
     def metodos(request):
         
         if request.method == 'GET':
@@ -26,11 +14,24 @@ class CandidatosView (views.APIView):
             serializer = CandidatosSerializer(candidato, many=True)
             return Response(serializer.data)
 
-        ''' elif request.method == 'POST':
-            serializer = BooksSerializer(data=request.data)
+        elif request.method == 'POST':
+            serializer = CandidatosSerializer(data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)'''
+            #return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    '''def post (self, request, *args, **kwargs):
+        serializer = CandidatosSerializer (data = request.data)
+        serializer.is_valid(raise_exception= True)
+        serializer.save()
+
+        tokenData = {"username": request.data["userData"], "pasword": request.data["pasword"]}
+        tokenSerializer = TokenObtainPairSerializer(data = tokenData)
+        tokenSerializer.is_valid(raise_exception=True)
+
+        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)
+        return Response(status=status.HTTP_201_CREATED)'''
+
+    
 
     
