@@ -10,3 +10,4 @@ class Solicitud(models.Model):
     id_Candidatos = models.ForeignKey(Candidatos, related_name='id_Candidatos', on_delete=models.CASCADE)
     estado = models.CharField('estado', max_length=20)
     respuesta = models.CharField('respuesta', max_length=50)
+    
