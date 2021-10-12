@@ -25,6 +25,11 @@ class CandidatosView (views.APIView):
         can_sel.delete()
         return Response(status=status.HTTP_201_CREATED)
 
+    def Get(request):
+        candidato = Candidatos.objects.all()
+        return Response(request, 'book/library.html', {'candidato': shelf})
+
+
     
 
     
