@@ -25,10 +25,9 @@ class CandidatosView (views.APIView):
         can_sel.delete()
         return Response(status=status.HTTP_201_CREATED)
 
-    def Get(request):
-        candidato = Candidatos.objects.all()
-        return Response(request, 'book/library.html', {'candidato': shelf})
-
+    def get(self, request, *args, **kwargs):
+        serializer = CandidatosSerializer(Candidatos.objects.all(), many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     
 
