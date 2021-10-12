@@ -19,9 +19,9 @@ class CandidatosView (views.APIView):
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
         return Response(status=status.HTTP_201_CREATED)
 
-    def Delete(request, Id_Candidato):
-        Id_Candidato = int(Id_Candidato)
-        can_sel = Candidatos.objects.get(id = Id_Candidato)
+    def Delete(request, Id_Ca):
+        id = int(Id_Ca)
+        can_sel = Candidatos.objects.get(Id_Candidato = id )
         can_sel.delete()
         return Response(status=status.HTTP_201_CREATED)
 
@@ -29,10 +29,10 @@ class CandidatosView (views.APIView):
         serializer = CandidatosSerializer(Candidatos.objects.all(), many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
    
-    def destroy(self, request, *args, **kwargs):
+    ''' def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         self.perform_destroy(instance)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_204_NO_CONTENT)'''
     
 
     
