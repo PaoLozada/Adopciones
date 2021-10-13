@@ -19,15 +19,22 @@ class CandidatosView (views.APIView):
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
         return Response(status=status.HTTP_201_CREATED)
 
-    '''def delete(request, Id_Ca):
-        id = int(Id_Ca)
-        can_sel = Candidatos.objects.get(Id_Candidato = id )   
-        can_sel.delete()
-        return Response(status=status.HTTP_201_CREATED)'''
-
     def get(self, request, *args, **kwargs):
         serializer = CandidatosSerializer(Candidatos.objects.all(), many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    '''def put(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = SnippetSerializer(snippet, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)'''
+
+    def delete(self, request, pk, format=None):
+        candidato = self.get_object(pk)
+        candidato.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     
     
