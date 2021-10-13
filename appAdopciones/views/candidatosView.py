@@ -31,8 +31,8 @@ class CandidatosView (views.APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)'''
 
-    def delete(self, request, pk, format=None):
-        candidato = self.get_object(pk)
+    def delete(self, request, Id_Candidato, format=None):
+        candidato = self.get_object(Id_Candidato)
         candidato.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
