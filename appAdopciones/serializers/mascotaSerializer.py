@@ -4,7 +4,10 @@ from rest_framework import serializers
 class MascotaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mascotas
-        fields = ['Nombre', 'Edad', 'Disponibilidad']
+        fields = ['Nombre', 'Edad', 'Disponibilidad']   
+
+
+        
 
     
        

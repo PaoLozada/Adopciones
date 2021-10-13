@@ -21,7 +21,7 @@ class CandidatosView (views.APIView):
 
     '''def delete(request, Id_Ca):
         id = int(Id_Ca)
-        can_sel = Candidatos.objects.get(Id_Candidato = id )
+        can_sel = Candidatos.objects.get(Id_Candidato = id )   
         can_sel.delete()
         return Response(status=status.HTTP_201_CREATED)'''
 

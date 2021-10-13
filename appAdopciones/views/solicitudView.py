@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.serializers import Serializer
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from appAdopciones.serializers.solicitudSerializer import SolicitudSerializer
+from appAdopciones.serializers.solicitudSerializer import SolicitudSerializer
 
 class SolicitudView (views.APIView):
     def post (self, request, *args, **kwargs):
@@ -16,4 +17,4 @@ class SolicitudView (views.APIView):
         tokenSerializer.is_valid(raise_exception=True)
 
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
-        return Response(status=status.HTTP_201_CREATED)
+        return Response(status=status.HTTP_201_CREATED)   

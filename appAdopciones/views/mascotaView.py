@@ -21,4 +21,4 @@ class MascotaView (views.APIView):
 
     def get(self, request, *args, **kwargs):
         serializer = MascotaSerializer(Mascotas.objects.all(), many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)    
