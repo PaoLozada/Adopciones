@@ -7,17 +7,21 @@ from appAdopciones.serializers.mascotaSerializer import MascotaSerializer
 from appAdopciones.models.mascotas import Mascotas
 
 class MascotaView (views.APIView):
-    def post (self, request, *args, **kwargs):
+    def post (self, request, format = None):
         serializer = MascotaSerializer (data = request.data)
-        serializer.is_valid(raise_exception= True)
-        serializer.save()
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+             
+
 
         '''tokenData = {"username": request.data["userData"], "pasword": request.data["pasword"]}
         tokenSerializer = TokenObtainPairSerializer(data = tokenData)
         tokenSerializer.is_valid(raise_exception=True)
 
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
-        return Response(status=status.HTTP_201_CREATED)
+        return Response(status=status.HTTP_200_OK)
 
     def get(self, request, *args, **kwargs):
         serializer = MascotaSerializer(Mascotas.objects.all(), many=True)
