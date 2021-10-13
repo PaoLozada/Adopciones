@@ -21,7 +21,7 @@ class MascotaView (views.APIView):
         tokenSerializer.is_valid(raise_exception=True)
 
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
-        return Response(status=status.HTTP_200_OK)
+        #return Response(status=status.HTTP_200_OK)
 
     def get(self, request, *args, **kwargs):
         serializer = MascotaSerializer(Mascotas.objects.all(), many=True)
