@@ -6,7 +6,18 @@ class MascotaSerializer(serializers.ModelSerializer):
         model = Mascotas
         fields = ['Nombre', 'Edad', 'Disponibilidad']   
 
+    
 
+    def to_representation(self, obj):
+        Mascota = Mascotas.objects.get(id=obj.id)
+        
+        
+        return{
+            'Nombrecito': Mascota.Nombre,
+            'Edadcita': Mascota.Edad,
+            'Disponibilidadcita': Mascota.Disponibilidad
+
+        }
         
 
     
