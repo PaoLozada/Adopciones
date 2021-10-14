@@ -7,9 +7,9 @@ class MascotaSerializer(serializers.ModelSerializer):
         fields = ['Id_Mascota','Nombre','Edad','Disponibilidad']   
 
     
-    def create (self, validated_data):
+    '''def create (self, validated_data):
         mascotaInstance = Mascotas.objects.create(**validated_data)
-        return mascotaInstance
+        return mascotaInstance'''
 
         
 
