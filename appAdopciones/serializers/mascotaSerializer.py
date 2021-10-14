@@ -14,7 +14,7 @@ class MascotaSerializer(serializers.ModelSerializer):
         
 
     def to_representation(self, obj):
-        mascota = Mascotas.objects.get()
+        mascota = Mascotas.objects.get(Id_Mascota = obj.Id_Mascota)
         return{
             'Nombrecito': mascota.Nombre,
             'Edadcita': mascota.Edad,
