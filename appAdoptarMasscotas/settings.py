@@ -36,7 +36,7 @@ ALLOWED_HOSTS = []
  #   "https://adopcionesmascotas.herokuapp.com/"
 #]
 
-#CORS_ALLOW_ALL_ORIGINS =True
+CORS_ALLOW_ALL_ORIGINS =True
 
 # Application definition
 
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'appAdopciones',
-    #'corsheaders',
+    'corsheaders',
 ]
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #"corsheaders.middleware.CorsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 
 ]
 
