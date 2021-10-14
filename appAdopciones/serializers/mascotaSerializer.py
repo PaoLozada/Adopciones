@@ -13,14 +13,14 @@ class MascotaSerializer(serializers.ModelSerializer):
 
         
 
-    '''def to_representation(self, obj):
+    def to_representation(self, obj):
         mascota = Mascotas.objects.get()
         return{
             'Nombrecito': mascota.Nombre,
             'Edadcita': mascota.Edad,
             'Disponibilidadcita': mascota.Disponibilidad
 
-        }'''
+        }
         
 
     
