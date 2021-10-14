@@ -8,8 +8,8 @@ class Candidatos(models.Model):
     Direccion = models.CharField('Direccion', max_length=30)
     Numero_Contacto = models.CharField('Numero_Contacto', max_length=20)
     Email = models.CharField('Email', max_length=30)
-    Edad = models.IntegerField(default=0)
-    Resultado_Prueba = models.IntegerField(default=0)  
+    Edad = models.IntegerField('Edad')
+    Resultado_Prueba = models.IntegerField('Resultado_Prueba')  
 
 
    
