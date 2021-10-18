@@ -4,7 +4,7 @@ from rest_framework import serializers
 class CandidatosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Candidatos
-        fields = ['Id_Candidato','Numero_Identificacion', 'Nombre_Completo', 'Direccion','Numero_Contacto','Email','Edad','Resultado_Prueba']  
+        fields = ['Numero_Identificacion', 'Nombre_Completo', 'Direccion','Numero_Contacto','Email','Edad']  
       
     '''def to_representation(self, obj):
         candi = Candidatos.objects.get(Id_Candidato = obj.Id_Candidato)
