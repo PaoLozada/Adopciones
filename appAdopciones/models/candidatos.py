@@ -9,7 +9,7 @@ class Candidatos(models.Model):
     Numero_Contacto = models.CharField('Numero_Contacto', max_length=20)
     Email = models.CharField('Email', max_length=30)
     Edad = models.IntegerField('Edad')
-    Resultado_Prueba = models.IntegerField('Resultado_Prueba')  
+    Resultado_Prueba = models.IntegerField('Resultado_Prueba', default= False)  
 
 
    
