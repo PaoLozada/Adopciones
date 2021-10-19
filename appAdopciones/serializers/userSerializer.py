@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'password', 'name', 'email']
 
-    def create(self, validated_data):
+    '''def create(self, validated_data):
         solicitudData = validated_data.pop ('solicitud')
         userInstance = User.objects.create(**validated_data)
         Solicitud.objects.create(user= userInstance, **solicitudData)
@@ -24,4 +24,4 @@ class UserSerializer(serializers.ModelSerializer):
             'name' : user.name,
             'email' : user.email
             
-        }
+        }'''
