@@ -32,6 +32,7 @@ urlpatterns = [
     path('user/', views.UserCreateView.as_view()),
     path('user/<int:pk>/', views.UserDetailView.as_view()),
     path('mascotas/', views.MascotaView.as_view()),
-    path('candidatos/<int:Id_Candidato>/', views.CandidatosView.as_view()),
+    path('candidatos/<int:Id_Candidato>/', views.CandidatosDetail.as_view()),
     path('solicitud/', views.SolicitudView.as_view()),
+    path('candidatos/', views.CandidatosView.as_view()),
 ]
