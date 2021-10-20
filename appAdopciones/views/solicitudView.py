@@ -7,14 +7,41 @@ from appAdopciones.models.solicitud import Solicitud
 from appAdopciones.serializers.solicitudSerializer import SolicitudSerializer
 
 class SolicitudView (views.APIView):
-    def post (self, request, *args, **kwargs):
-        serializer = SolicitudSerializer (data = request.data)
-        serializer.is_valid(raise_exception= True)
-        serializer.save()
+    def get(self, request, format=None):
+        candidato = Solicitud.objects.all()
+        serializer = SolicitudSerializer(candidato, many=True)
+        return Response(serializer.data,status=status.HTTP_200_OK)
 
-        '''tokenData = {"username": request.data["userData"], "pasword": request.data["pasword"]}
-        tokenSerializer = TokenObtainPairSerializer(data = tokenData)
-        tokenSerializer.is_valid(raise_exception=True)
+    def post(self, request, format=None):
+        serializer = SolicitudSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
-        return Response(status=status.HTTP_201_CREATED)   
+
+class MascotaDetail(views.APIView):
+    
+    def get_object(self, pk):
+        try:
+            return Solicitud.objects.get(id_Solicitud=pk)
+        except Solicitud.DoesNotExist:
+            raise "Http404"
+
+    def get(self, request, pk, format=None):
+        solicitud = self.get_object(pk)
+        serializer = SolicitudSerializer(solicitud)
+        return Response(serializer.data)
+
+    def put(self, request, pk, format=None):
+        solicitud = self.get_object(pk)
+        serializer = SolicitudSerializer(solicitud, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format=None):
+        solicitud = self.get_object(pk)
+        solicitud.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
