@@ -24,11 +24,7 @@ class CandidatosView (views.APIView):
 
 class CandidatosDetail(views.APIView):
     
-    def get_object(self, pk):
-        try:
-            return Candidatos.objects.get(Id_Candidato=pk)
-        except Candidatos.DoesNotExist:
-            raise "Http404"
+    
 
     def get(self, request, pk, format=None):
         candidato = self.get_object(pk)
