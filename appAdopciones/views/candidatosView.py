@@ -24,9 +24,9 @@ class CandidatosView (views.APIView):
         serializer = CandidatosSerializer(candidato)
         return Response(serializer.data)
 
-    def get(self, request, *args, **kwargs):
+    '''def get(self, request, *args, **kwargs):
         serializer = CandidatosSerializer(Candidatos.objects.all(), many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)'''
 
     def put(self, request, pk, format=None):
         candidato = self.get_object(pk)
