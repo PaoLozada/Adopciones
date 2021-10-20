@@ -22,27 +22,19 @@ class CandidatosView (views.APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-    '''def post (self, request, *args, **kwargs):
-        serializer = CandidatosSerializer (data = request.data)
-        serializer.is_valid(raise_exception= True)
-        serializer.save()
-
-        return Response(status=status.HTTP_201_CREATED)'''
-
-    '''def get(self, request, Id_Candidato, format=None):
-        candidato = self.get_object(Id_Candidato)
-        serializer = CandidatosSerializer(candidato)
-        return Response(serializer.data)'''
-
-
-    def get_object(self, Id_Candidato):
-        try:
-            return Candidatos.objects.get(Id_Candidatos=Id_Candidato)
-        except Candidatos.DoesNotExist:
-            raise ("Http404")
-
-
+class CandidatosDetail(views.APIView):
     
+    def get_object(self, pk):
+        try:
+            return Candidatos.objects.get(Id_Candidato=pk)
+        except Candidatos.DoesNotExist:
+            raise "Http404"
+
+    def get(self, request, pk, format=None):
+        candidato = self.get_object(pk)
+        serializer = CandidatosSerializer(candidato)
+        return Response(serializer.data)
+
     def put(self, request, pk, format=None):
         candidato = self.get_object(pk)
         serializer = CandidatosSerializer(candidato, data=request.data)
@@ -51,9 +43,7 @@ class CandidatosView (views.APIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, Id_Candidato, format=None):
-        candidato = self.get_object(Id_Candidato)
+    def delete(self, request, pk, format=None):
+        candidato = self.get_object(pk)
         candidato.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT) 
-
-    
+        return Response(status=status.HTTP_204_NO_CONTENT)
