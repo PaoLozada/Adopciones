@@ -19,14 +19,20 @@ class CandidatosView (views.APIView):
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
         return Response(status=status.HTTP_201_CREATED)
 
-    def get(self, request, Id_Candidato, format=None):
+    '''def get(self, request, Id_Candidato, format=None):
         candidato = self.get_object(Id_Candidato)
         serializer = CandidatosSerializer(candidato)
-        return Response(serializer.data)
+        return Response(serializer.data)'''
+    def get_object(self, pk):
+        try:
+            return Candidatos.objects.get(Id_Candidatos=pk)
+        except Candidatos.DoesNotExist:
+            raise ("Http404")
 
-    '''def get(self, request, *args, **kwargs):
+
+    def get(self, request, *args, **kwargs):
         serializer = CandidatosSerializer(Candidatos.objects.all(), many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)'''
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk, format=None):
         candidato = self.get_object(pk)
