@@ -23,9 +23,9 @@ class CandidatosView (views.APIView):
         candidato = self.get_object(Id_Candidato)
         serializer = CandidatosSerializer(candidato)
         return Response(serializer.data)'''
-    def get_object(self, pk):
+    def get_object(self, Id_Candidato):
         try:
-            return Candidatos.objects.get(Id_Candidatos=pk)
+            return Candidatos.objects.get(Id_Candidatos=Id_Candidato)
         except Candidatos.DoesNotExist:
             raise ("Http404")
 
