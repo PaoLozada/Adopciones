@@ -19,6 +19,11 @@ class CandidatosView (views.APIView):
         return Response(tokenSerializer.validated_data, status=status.HTTP_201_CREATED)'''
         return Response(status=status.HTTP_201_CREATED)
 
+    def get(self, request, pk, format=None):
+        candidato = self.get_object(pk)
+        serializer = CandidatosSerializer(candidato)
+        return Response(serializer.data)
+
     def get(self, request, *args, **kwargs):
         serializer = CandidatosSerializer(Candidatos.objects.all(), many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
