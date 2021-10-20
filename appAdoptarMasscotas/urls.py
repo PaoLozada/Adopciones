@@ -35,4 +35,6 @@ urlpatterns = [
     path('candidatos/<int:pk>/', views.CandidatosDetail.as_view()),
     path('solicitud/', views.SolicitudView.as_view()),
     path('candidatos/', views.CandidatosView.as_view()),
+    path('mascotas/<int:pk>/', views.MascotaDetail.as_view()),
+    path('solicitud/<int:pk>/', views.SolicitudDetail.as_view()),
 ]

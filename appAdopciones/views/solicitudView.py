@@ -20,7 +20,7 @@ class SolicitudView (views.APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class MascotaDetail(views.APIView):
+class SolicitudDetail(views.APIView):
     
     def get_object(self, pk):
         try:
