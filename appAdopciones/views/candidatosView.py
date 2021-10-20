@@ -24,26 +24,26 @@ class CandidatosView (views.APIView):
 
 class CandidatosDetail(views.APIView):
     
-    def get_object(self, pk):
+    def get_object(self, Id_Candidato):
         try:
-            return Candidatos.objects.get(Id_Candidato=pk)
+            return Candidatos.objects.get(Id_Candidato=Id_Candidato)
         except Candidatos.DoesNotExist:
             raise "Http404"
 
-    def get(self, request, pk, format=None):
-        candidato = self.get_object(pk)
+    def get(self, request, Id_Candidato, format=None):
+        candidato = self.get_object(Id_Candidato)
         serializer = CandidatosSerializer(candidato)
         return Response(serializer.data)
 
-    def put(self, request, pk, format=None):
-        candidato = self.get_object(pk)
+    def put(self, request, Id_Candidato, format=None):
+        candidato = self.get_object(Id_Candidato)
         serializer = CandidatosSerializer(candidato, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
-        candidato = self.get_object(pk)
+    def delete(self, request, Id_Candidato, format=None):
+        candidato = self.get_object(Id_Candidato)
         candidato.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
