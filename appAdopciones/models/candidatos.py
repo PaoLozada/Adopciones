@@ -9,12 +9,12 @@ class Candidatos(models.Model):
     Numero_Contacto = models.CharField('Numero_Contacto', max_length=20)
     Email = models.CharField('Email', max_length=30)
     Edad = models.IntegerField('Edad')
-    Has_Tenido_Mascotas = models.CharField("Ha_Tenido_Mascotas", max_length=2)
-    Seras_Responsable = models.CharField("Seras_Responsable", max_length=2)
-    Tienes_Espacio = models.CharField("Tienes_Espacio", max_length=2)
-    Tienes_Tiempo = models.CharField("Tienes_Tiempo", max_length=2)
-    Recursos_Economicos = models.CharField("Recursos_Economicos", max_length=2)
-    Afrontar_Problemas = models.CharField("Afrontar_Problemas", max_length=2)
+    Has_Tenido_Mascotas = models.CharField('Ha_Tenido_Mascotas', max_length=2)
+    Seras_Responsable = models.CharField('Seras_Responsable', max_length=2)
+    Tienes_Espacio = models.CharField('Tienes_Espacio', max_length=2)
+    Tienes_Tiempo = models.CharField('Tienes_Tiempo', max_length=2)
+    Recursos_Economicos = models.CharField('Recursos_Economicos', max_length=2)
+    Afrontar_Problemas = models.CharField('Afrontar_Problemas', max_length=2)
     Resultado_Prueba = models.IntegerField('Resultado_Prueba', default= False)  
 
 
