@@ -17,10 +17,6 @@ class CandidatosView (views.APIView):
     def post(self, request, format=None):
         serializer = CandidatosSerializer(data=request.data)
         if serializer.is_valid():
-            def calcular():
-                Candidatos.Resultado_Prueba= Candidatos.Has_Tenido_Mascotas + Candidatos.Seras_Responsable + Candidatos.Tienes_Espacio 
-
-            calcular()
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
