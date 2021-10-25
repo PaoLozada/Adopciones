@@ -7,21 +7,7 @@ class MascotaSerializer(serializers.ModelSerializer):
         fields = ['Id_Mascota','Nombre','Edad','Disponibilidad']   
 
     
-    def create (self, validated_data):
-        mascotaInstance = Mascotas.objects.create(**validated_data)
-        return mascotaInstance
-
-        
-
-    def to_representation(self, obj):
-        mascota = Mascotas.objects.get(Id_Mascota = obj.Id_Mascota)
-        return{
-            'Nombre': mascota.Nombre,
-            'Edad(meses)': mascota.Edad,
-            'Disponibilidad': mascota.Disponibilidad
-
-        }
-        
+    
 
     
        

@@ -6,7 +6,3 @@ class CandidatosSerializer(serializers.ModelSerializer):
         model = Candidatos
         fields = ['Numero_Identificacion', 'Nombre_Completo', 'Direccion', 'Numero_Contacto', 'Email', 'Edad', 'Has_Tenido_Mascotas', 'Seras_Responsable', 'Tienes_Espacio', 'Tienes_Tiempo', 'Recursos_Economicos', 'Afrontar_Problemas', 'Resultado_Prueba']  
       
-def calcular():
-    Candidatos.Resultado_Prueba= Candidatos.Has_Tenido_Mascotas + Candidatos.Seras_Responsable + Candidatos.Tienes_Espacio 
-
-calcular()
